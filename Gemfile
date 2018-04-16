@@ -17,7 +17,7 @@ gem 'simple_form', '~> 4.0'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
 # See https://rubygems.org/gems/bootstrap-sass
-gem 'acts-as-taggable-on', '~> 5.0'
+gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
 # See https://rubygems.org/gems/acts-as-taggable-on
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
