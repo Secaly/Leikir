@@ -2,7 +2,18 @@ class ContactsController < ApplicationController
   before_action :find_contact, only: [:show, :edit, :update, :destroy]
 
   def index
-    @contacts = Contact.all.order("created_at DESC")
+    if (params.has_key?(:limit) && params.has_key?(:page))
+      @limit = params[:limit].to_i
+      @page = params[:page].to_i
+    else
+      @limit = 10
+      @page = 1
+    end
+    @next_page = @page + 1
+    @prev_page = @page - 1
+    @contacts = Contact.all.order("created_at ASC")
+                           .limit(@limit * @page)
+                           .offset(@limit * @page - @limit)
   end
 
   def show
@@ -13,6 +24,7 @@ class ContactsController < ApplicationController
   end
 
   def create
+    p contact_params
     @contact = Contact.new(contact_params)
     if @contact.save
       redirect_to root_path
@@ -25,6 +37,7 @@ class ContactsController < ApplicationController
   end
 
   def update
+    p contact_params
     if @contact.update(contact_params)
       redirect_to contact_path(@contact)
     else
@@ -40,7 +53,7 @@ class ContactsController < ApplicationController
   private
 
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name)
+      params.require(:contact).permit(:first_name, :last_name, :tag_list)
     end
 
     def find_contact

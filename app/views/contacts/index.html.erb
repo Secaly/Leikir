@@ -1,13 +1,25 @@
 <h1>Contacts</h1>
 
+<%= link_to "10", page: 1, limit: 10 %>
+<%= link_to "20", page: 1, limit: 20 %>
+<%= link_to "50", page: 1, limit: 50 %>
+
 <ul>
   <% @contacts.each do |contact| %>
     <li>
       <%= contact.first_name %>
       <%= contact.last_name %>
+      <%= contact.tag_list %>
       <%= link_to "edit", contact %>
     </li>
   <% end %>
 </ul>
+
+<% if @page > 1 %>
+  <%= link_to "Prev page", page: @prev_page, limit: @limit %>
+<% end %>
+<% if @contacts.length == 10 %>
+  <%= link_to "Next page", page: @next_page, limit: @limit %>
+<% end %>
 
 <%= link_to "New contact", new_contact_path %>
