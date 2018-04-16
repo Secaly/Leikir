@@ -15,3 +15,10 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ a { color: inherit; }
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+}

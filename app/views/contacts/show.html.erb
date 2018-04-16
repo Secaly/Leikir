@@ -1,5 +1,11 @@
-<p><%= @contact.first_name %> <%= @contact.last_name %></p>
+<div class="container">
 
-<%= link_to "Back", root_path %>
-<%= link_to "Edit", edit_contact_path(@contact) %>
-<%= link_to "Delete", contact_path(@contact), method: :delete, data: { confirm: "Are you sure ?" } %>
+  <h1>Edit contact</h1>
+
+  <p><%= @contact.first_name %> <%= @contact.last_name %></p>
+
+  <%= link_to "Back", root_path, :class => "btn btn-primary" %>
+  <%= link_to "Edit", edit_contact_path(@contact), :class => "btn btn-warning" %>
+  <%= link_to "Delete", contact_path(@contact), method: :delete, data: { confirm: "Are you sure ?" }, :class => "btn btn-danger" %>
+
+</div>
