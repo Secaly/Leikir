@@ -1,24 +1,9 @@
-# README
+# Leikir
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Just a little work for Leikir.io
+The application is a contact manager in Ruby on Rails where you can :
+- List, display, create, edit and delete your contacts
+- Add multiple tags on each contact
+- Display your list by 10, 20 or 50 contacts per page
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+``rake db:seed`` to generate 100 predefined contacts
