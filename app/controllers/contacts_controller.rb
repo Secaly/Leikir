@@ -12,8 +12,8 @@ class ContactsController < ApplicationController
     @next_page = @page + 1
     @prev_page = @page - 1
     @contacts = Contact.all.order("created_at ASC")
-                           .limit(@limit * @page)
-                           .offset(@limit * @page - @limit)
+                           .limit(@limit)
+                           .offset(@limit * (@page - 1))
   end
 
   def show
