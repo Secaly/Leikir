@@ -55,6 +55,9 @@
             Last name
           </th>
           <th>
+            Tags
+          </th>
+          <th>
             Update
           </th>
         </tr>
@@ -67,6 +70,9 @@
             </th>
             <th>
               <%= contact.last_name %>
+            </th>
+            <th>
+              <%= contact.tag_list %>
             </th>
             <th>
               <%= link_to "edit", contact, :class => "btn btn-warning" %>

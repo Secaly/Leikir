@@ -24,7 +24,6 @@ class ContactsController < ApplicationController
   end
 
   def create
-    p contact_params
     @contact = Contact.new(contact_params)
     if @contact.save
       redirect_to root_path
@@ -53,7 +52,7 @@ class ContactsController < ApplicationController
   private
 
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name)
+      params.require(:contact).permit(:first_name, :last_name, :tag_list)
     end
 
     def find_contact
